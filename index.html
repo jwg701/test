@@ -13,7 +13,7 @@
   <script>
   d3.json("/postgresql/query", {
     method: "POST", 
-    body: `SELECT 'Hello, World' as message` // Bare en test-query
+    body: `SELECT count(*) from værdi` // Bare en test-query
   }).then(function(response) {
     const data = response.data;
     console.log("data", data);
@@ -34,7 +34,7 @@
       .append("text")
       .attr("x", 20)
       .attr("y", 20)
-      .text(function (d) { return d.message; })  
+      .text(function (d) { return d; })  
   });
   
   </script>
