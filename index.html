@@ -13,7 +13,7 @@
   <script>
   d3.json("/postgresql/query", {
     method: "POST", 
-    body: `SELECT count(*) from værdi` // Bare en test-query
+    body: `SELECT * from værdi as v inner join dato as d on v.dato_id = d.dato_id group by d.dato` // Bare en test-query
   }).then(function(response) {
     const data = response.data;
     console.log("data", data);
